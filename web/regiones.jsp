@@ -132,7 +132,6 @@
         $('#btnEviar').html('Editar<i class="material-icons right">send</i>');
         $('#action').val('editar');
         $('#idRow').val(idRrow);
-        alert (idRrow);
         $.ajax({
             beforeSend: function () {
                 // body...

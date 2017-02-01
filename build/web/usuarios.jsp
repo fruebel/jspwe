@@ -32,58 +32,58 @@
         <div class="modal-content">
 
 
-            <ul class="collapsible popout" data-collapsible="accordion">
+            <ul class="collapsible" data-collapsible="accordion">
 
                 <li>
                     <div class="collapsible-header active"><i class="material-icons">assignment_ind</i>Datos Principales Usuarios</div>
                     <div class="collapsible-body">
                         <div class="row" style="margin-top: 10px;">
-                            <div class="col s2">
+                            <div class="col s3">
                                 Id Usuario
                             </div>       
-                            <div class="col s4">
+                            <div class="col s3">
                                 <input placeholder="Id usuario" type="text" name="idusuario" id="idusuario" required="">
                             </div>
 
-                            <div class="col s2">
+                            <div class="col s3">
                                 Contrase&ntilde;a
                             </div>               
-                            <div class="col s4">
+                            <div class="col s3">
                                 <input placeholder="Contrase&ntilde;a" type="text" name="contrasenia" id="contrasenia" required="">
                             </div>    
 
                         </div>
 
                         <div class="row">
-                            <div class="col s2">
+                            <div class="col s3">
                                 Nombre
                             </div>       
-                            <div class="col s4">
+                            <div class="col s3">
                                 <input placeholder="Nombre" type="text" name="nombre" id="nombre" required="">
                             </div>
 
-                            <div class="col s2">
+                            <div class="col s3">
                                 Apellido Paterno
                             </div>  
 
-                            <div class="col s4">
+                            <div class="col s3">
                                 <input placeholder="Apellido Paterno" type="text" name="apellidopaterno" id="apellidopaterno" required="">
                             </div>          
                         </div>    
 
                         <div class="row">
-                            <div class="col s2">
+                            <div class="col s3">
                                 Apellido Materno
                             </div>       
-                            <div class="col s4">
+                            <div class="col s3">
                                 <input placeholder="Apellido Materno" type="text" name="apellidomaterno" id="apellidomaterno" required="">
                             </div>
 
-                            <div class="col s2">
+                            <div class="col s3">
                                 Perfil
                             </div>  
 
-                            <div class="col s4">
+                            <div class="col s3">
                                 <!--input placeholder="id Perfil" type="text" name="idperfil" id="idperfil" required=""-->
 
                                 <select name="idperfil" id="idperfil" required="true">
@@ -96,15 +96,15 @@
                         <div class="row">
 
 
-                            <div class="col s2">
+                            <div class="col s3">
                                 Telefono
                             </div>  
 
-                            <div class="col s4">
+                            <div class="col s3">
                                 <input placeholder="Telefono" type="text" name="telefono" id="telefono" required="false">
                             </div>  
 
-                            <div class="col s4">
+                            <div class="col s6">
                                 <!--input placeholder="Estatus" type="text" name="idestado" id="idestado" required=""-->
                                 <div class="switch"><label>Inactivo<input type="checkbox" id="idestado" name="idestado" checked><span class="lever"></span>Activo</label></div> 
                             </div> 
@@ -118,36 +118,44 @@
                     <div class="collapsible-body">
 
                         <div class="row">
-                            <div class="col s2">
+                            <div class="col s3">
                                 Email
                             </div>       
-                            <div class="col s4">
-                                <input placeholder="Email" type="text" name="email" id="email" required="false">
+                            <div class="col s3">
+                                <input placeholder="Email" type="text" name="email" id="email" >
                             </div>
 
-                            <div class="col s2">
+                            <div class="col s3">
                                 Tema
                             </div>  
 
-                            <div class="col s4">
-                                <input placeholder="Tema" type="text" name="tema" id="tema" required="false">
+                            <div class="col s3">
+                                <input placeholder="Tema" type="text" name="tema" id="tema" >
                             </div>          
                         </div>   
 
                         <div class="row">
-                            <div class="col s2">
+                            <div class="col s3">
                                 Lenguaje
                             </div>       
-                            <div class="col s4">
-                                <input placeholder="Lenguaje" type="text" name="lenguaje" id="lenguaje" required="false">
+                            <div class="col s3">
+                                <input placeholder="Lenguaje" type="text" name="lenguaje" id="lenguaje" >
                             </div>
 
-                            <div class="col s2">
-                                Fotografia
-                            </div>       
-                            <div class="col s4">
-                                <input placeholder="Fotografia" type="text" name="fotografia" id="fotografia" required="false">
-                            </div>               
+
+                            <!--div class="col s6">
+
+                                
+                                <div class="file-field input-field">
+                                    <div class="btn">
+                                        <span>Fotografia</span>
+                                        <input type="file" name="file" id="file">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text" placeholder="Selecciona el Archivo">
+                                    </div>
+                                </div>
+                            </div-->               
 
 
                         </div>
@@ -167,6 +175,65 @@
             <button id="btnEviar" class=" btn waves-effect blue lighten-1" type="submit">Registrar<i class="material-icons right">send</i></button>
 
             <div class="progress" style="display: none;" id="loading">
+                <div class="indeterminate"></div>
+            </div>
+        </div>
+
+
+
+    </div>
+</form>
+
+
+<!-- Modal Fotografia-->
+<form name="frmDataFoto" id="frmDataFoto">
+
+
+    <div id="modal2" class="modal modal-fixed-footer">
+
+        <div class="modal-content">
+
+
+            <ul class="collapsible" data-collapsible="accordion">
+
+                <li>
+                    <div class="collapsible-header active"><i class="material-icons">assignment_ind</i>Fotografia</div>
+                    <div class="collapsible-body">
+                        <div class="row" style="margin-top: 10px;">
+
+                            <div class="col s12">
+                                <div class="file-field input-field">
+                                    <div class="btn">
+                                        <span>Fotografia</span>
+                                        <input type="file" name="file" id="file">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text" placeholder="Selecciona el Archivo">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col s12">
+                                <div id="imgContainer"></div>
+                            </div>
+                            
+                        </div>
+
+                    </div>    
+                </li>
+
+            </ul>    
+        </div>
+
+        <div class="modal-footer">
+
+            <!--a href="#!" id="btnEviar"  class="modal-action modal-close waves-effect waves-green btn-flat">Registrar</a-->
+            <button id="btnEviarfoto" class=" btn waves-effect blue lighten-1" type="submit">Registrar<i class="material-icons right">send</i></button>
+
+            <div class="progress" style="display: none;" id="loadingfoto">
                 <div class="indeterminate"></div>
             </div>
         </div>
@@ -287,9 +354,17 @@
 
         e.preventDefault();
 
+
+        /*var file = $('[name="file"]');
+         var filename = $.trim(file.val());
+         if (!(isJpg(filename) || isPng(filename))) {
+         alert('Selecciona un arcivo JPG/PNG a cargar ...');
+         return;
+         }
+         */
+
         var pet = $('#frmData').attr('action');
         var met = $('#frmData').attr('method');
-
         //alert(pet + " " + met + " " + $('#frmData').serialize());
 
         $.ajax({
@@ -305,7 +380,7 @@
             async: false,
             dataType: 'json',
             error: function (jqXHR, estado, error) {
-                // body...
+
                 //alert('Se produjo un error : ' + error + " su estado " + estado);
                 alert('El registro no pudo realizarse, intente nuevamente.');
                 $('#btnEviar').attr('disabled', false);
@@ -327,8 +402,36 @@
             },
             complete: function (xhr, status) {
 
+                /*if(!subeArchivo())
+                 alert("Error al Cargar el Archivo");   
+                 
+                 */
             }
         });
+
+
+    })
+
+    $('#frmDataFoto').submit(function (e) {
+
+        e.preventDefault();
+
+
+        var file = $('[name="file"]');
+        var filename = $.trim(file.val());
+        if (!(isJpg(filename) || isPng(filename))) {
+            alert('Selecciona un arcivo JPG/PNG a cargar ...');
+            return;
+        }
+
+        if (!subeArchivo("frmDataFoto"))
+            alert("Error al Cargar el Archivo");
+        else {
+            Materialize.toast("Foto almacenada con Exito", 2000, 'rounded');
+            //$("#modal2").modal('close');
+            //pinta_contenido('listar');
+
+        }
 
 
     })
