@@ -17,6 +17,10 @@
         <servlet-class>soft.jf.seguridad.servlets.perfiles</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>regiones</servlet-name>
+        <servlet-class>soft.jf.seguridad.servlets.regiones</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>FileUploadServlet</servlet-name>
         <servlet-class>soft.jf.seguridad.servlets.FileUploadServlet</servlet-class>
     </servlet>
@@ -44,6 +48,7 @@
         <servlet-name>llenacombos</servlet-name>
         <url-pattern>/soft_util_combos.do</url-pattern>
     </servlet-mapping>
+    
     <servlet-mapping>
         <servlet-name>perfiles</servlet-name>
         <url-pattern>/perfiles</url-pattern>
@@ -51,6 +56,10 @@
     <servlet-mapping>
         <servlet-name>prueba</servlet-name>
         <url-pattern>/prueba</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>regiones</servlet-name>
+        <url-pattern>/regiones</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>FileUploadServlet</servlet-name>
