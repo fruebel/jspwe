@@ -76,6 +76,7 @@ public class usuarios extends HttpServlet {
 
             String data = "";
             String botonEditar = "";
+            String botonFoto = "";
 
             switch (action) {
 
@@ -84,6 +85,7 @@ public class usuarios extends HttpServlet {
                     data = "<thead> ";
                     data = data + "<tr> ";
                     data = data + "<th>Operaciones</th> ";
+                    
                     data = data + "<th>Usuario</th> ";
                     data = data + "<th>Nombre</th> ";
                     data = data + "<th>Estatus</th> ";
@@ -91,6 +93,7 @@ public class usuarios extends HttpServlet {
                     data = data + "<th>Fecha Registro</th> ";
                     data = data + "<th>Fecha Ultimo Acceso</th> ";
                     data = data + "<th>Usuario Registro</th> ";
+                    data = data + "<th>Fotografia</th> ";
 
                     data = data + "</tr> ";
                     data = data + "</thead> ";
@@ -105,6 +108,7 @@ public class usuarios extends HttpServlet {
                     data = data + "<th>Fecha Registro</th> ";
                     data = data + "<th>Fecha Ultimo Acceso</th> ";
                     data = data + "<th>Usuario Registro</th> ";
+                    data = data + "<th></th> ";
 
                     data = data + "</tr> ";
                     data = data + "</tfoot>";
@@ -120,9 +124,11 @@ public class usuarios extends HttpServlet {
                         for (Segusuarios objusuario : lista) {
 
                             botonEditar = "<a id='" + objusuario.getIdUsuario() + "'  onclick='editar(this);'  class='btn-floating  waves-effect waves-light red tooltipped' href='#modal1' data-position='left' data-delay='100' data-tooltip='Editar Registro' ><i class='material-icons md-18'>mode_edit</i></a>";
-
+                            botonFoto = "<a id='" + objusuario.getIdUsuario() + "'  onclick='editar(this);'  class='btn-floating  waves-effect waves-light red tooltipped' href='#modal2' data-position='left' data-delay='100' data-tooltip='Editar Fotografia' ><i class='material-icons md-18'>person_pin</i></a>";
+                            
                             data = data + " <tr> ";
                             data = data + " <td>" + botonEditar + "</td>";
+                   
                             data = data + " <td>" + objusuario.getIdUsuario() + "</td>";
                             data = data + " <td>" + objusuario.getNombre() + "</td>";
                             data = data + " <td>" + objusuario.getIdEstado().getEstado() + "</td>";
@@ -130,6 +136,7 @@ public class usuarios extends HttpServlet {
                             data = data + " <td>" + objusuario.getFechaRegistro() + "</td>";
                             data = data + " <td>" + objusuario.getUltimoAcceso() + "</td>";
                             data = data + " <td>" + objusuario.getIdUsuarioRegistro() + "</td>";
+                            data = data + " <td>" + botonFoto + "</td>";
                             data = data + " </tr>";
                         }
                         data = data + "</tbody>";

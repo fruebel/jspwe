@@ -17,9 +17,9 @@
         gutter: 9 // Spacing from edge
     });
     $(".button-collapse").sideNav();
-
+  
    
-
+  
     $(document).ready(function () {
         //alert(screen.width);
         if (screen.width >= 500) {

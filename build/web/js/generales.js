@@ -4,33 +4,71 @@
  * and open the template in the editor.
  */
 //lista_f(tabla SQL,id_campo,texto_campo,where,elemento_html)
-function llenaLista(tabla,id,texto,where,elemento){
+function llenaLista(tabla, id, texto, where, elemento) {
 
 
-	var lista;
+    var lista;
 
-	 $.ajax({
-	        beforeSend: function (){
-	        },
-	        url:'soft_util_combos.do',
-	        type:'POST',
-	        async:false,
-	        data:'tabla='+tabla+'&id='+id+'&texto='+texto+'&where='+where,
-	        error: function (response){
-	            alert('Se produjo un error : ');
-	            console.log('error combos->', response);
-	        },
-	        success: function (data){	        		        	
-	            lista =  data;
-	            $('#'+elemento).html(lista);
-	        }
-	    })
+    $.ajax({
+        beforeSend: function () {
+        },
+        url: 'soft_util_combos.do',
+        type: 'POST',
+        async: false,
+        data: 'tabla=' + tabla + '&id=' + id + '&texto=' + texto + '&where=' + where,
+        error: function (response) {
+            alert('Se produjo un error : ');
+            console.log('error combos->', response);
+        },
+        success: function (data) {
+            lista = data;
+            $('#' + elemento).html(lista);
+        }
+    })
 
-	 return lista;
-} 
-
-function mensaje(msg,duracion,tipo){
-    return Materialize.toast(msg, duracion,tipo); 
-    //alert("funcion general");
+    return lista;
 }
+
+var subeArchivo = function (frm) {
+
+    var respuesta = true;
+    var formData = new FormData(document.getElementById(frm));
+    var imgContainer = $('#imgContainer');
+    
+    $.ajax({
+        url: 'FileUploadServlet',
+        type: "POST",
+        async: false,
+        data: formData,
+        dataType: 'json',
+        enctype: 'multipart/form-data',
+        processData: false,
+        contentType: false
+    }).done(function (data) {
+        alert(data.resultado);
+        if (data.resultado == 'exito'){
+            respuesta = true;
+            imgContainer.html('');
+            var img = '<img src="data:' + data.imagen + ';base64,'
+                  + data.imagen + '"/>';
+
+            //imgContainer.append(img);
+        }    
+        else
+            respuesta = false;
+    }).fail(function (jqXHR, textStatus) {
+        respuesta = false;
+    });
+
+    return respuesta;
+
+}
+
+var isJpg = function (name) {
+    return name.match(/jpg$/i)
+};
+
+var isPng = function (name) {
+    return name.match(/png$/i)
+};
 

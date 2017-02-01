@@ -24,6 +24,7 @@ import soft.jf.seguridad.modelos.Segusuarios;
 public class segPerfilesDAO {
 
     ConnectionFactory conexionFactory = new ConnectionFactory();
+    GeneralesDAO generalesDAO;
 
     public ArrayList<Segperfiles> ConsultarPerfiles() throws ClassNotFoundException, SQLException {
 
@@ -212,9 +213,15 @@ public class segPerfilesDAO {
             System.out.println(sql);
 
             boolean exitoso = conexionFactory.ejecutarSQL(sql);
-            conexionFactory.desconectar();
-
+        
             if (exitoso) {
+                conexionFactory.ejecutarSQL("delete from seg_funcionxperfil where idperfil="+perfil.getIdperfil());
+                for (int i=0;i<chkfunciones.length;i++){
+                    sql = "insert into seg_funcionxperfil(idperfil,idfuncion) values ("+perfil.getIdperfil()+","+chkfunciones[i]+")";
+                    System.out.println(sql);
+                    conexionFactory.ejecutarSQL(sql);
+                }
+                conexionFactory.desconectar();
                 return true;
             } else {
                 return false;
@@ -224,6 +231,37 @@ public class segPerfilesDAO {
             return false;
         }
     }
-    
+   
+     public boolean CreaPerfil(Segperfiles perfil,String[] chkfunciones)throws ClassNotFoundException, SQLException{
+        
+     Connection conexion = conexionFactory.conectar();
+
+        if (conexion != null) {
+
+            String sql = "insert into seg_perfiles(nombre,activo) values ('"+perfil.getPerfil()+"',"+perfil.getActivo()+")";
+            System.out.println(sql);
+
+            boolean exitoso = conexionFactory.ejecutarSQL(sql);
+            
+        
+            if (exitoso) {
+                generalesDAO = new GeneralesDAO();
+                int idperfil = generalesDAO.regresaIdRegistrado("seg_perfiles", "idperfil");
+                conexionFactory.ejecutarSQL("delete from seg_funcionxperfil where idperfil="+idperfil);
+                for (int i=0;i<chkfunciones.length;i++){
+                    sql = "insert into seg_funcionxperfil(idperfil,idfuncion) values ("+idperfil+","+chkfunciones[i]+")";
+                    System.out.println(sql);
+                    conexionFactory.ejecutarSQL(sql);
+                }
+                conexionFactory.desconectar();
+                return true;
+            } else {
+                return false;
+            }
+
+        } else {
+            return false;
+        }
+    }   
     //
 }

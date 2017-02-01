@@ -24,7 +24,7 @@
 
 <!-- Modal -->
 <form name="frmData" id="frmData" action="perfiles" method="post">
-    <input type="hidden" id="action" name="action" value="nuevo" /> 
+    <input type="hidden" id="action" name="action" value="action" /> 
     <input type="hidden" id="idRow" name="idRow" value="idRow" /> 
 
     <div id="modal1" class="modal modal-fixed-footer">
@@ -95,7 +95,7 @@
 
 <script type="text/javascript">
 
-    llenaLista("seg_perfiles", "idperfil", "nombre", "1", "idperfil");
+    //llenaLista("seg_perfiles", "idperfil", "nombre", "1", "idperfil");
     pinta_contenido('listar');
     function pinta_contenido(valor) {
 
@@ -278,6 +278,7 @@
         $('#btnEviar').html('Nuevo<i class="material-icons right">send</i>');
         $('#action').val('nuevo');
         $('#idRow').val(0);
+        pinta_contenido_funciones(0);
 
 
     }

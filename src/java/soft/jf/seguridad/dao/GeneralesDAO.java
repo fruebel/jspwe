@@ -44,5 +44,22 @@ public class GeneralesDAO {
 
         return contenido;
     }
+    
+    public int regresaIdRegistrado(String tabla,String id) throws ClassNotFoundException, SQLException{
+    
+        Connection conexion = conexionFactory.conectar();
+        int identity=0;
+        String query = "select " + id + " as id from " + tabla + " order by " + id + " desc limit 1";
+        System.out.println(query);
+        
+        if (conexion != null) {  
+            ResultSet rs = conexionFactory.ejecutarConsulta(query);
+            while (rs.next()){
+                identity = rs.getInt("id");
+            }
+        }
+        
+        return identity;
+    }
 
 }

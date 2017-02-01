@@ -17,8 +17,8 @@
         <servlet-class>soft.jf.seguridad.servlets.perfiles</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>regiones</servlet-name>
-        <servlet-class>soft.jf.seguridad.servlets.regiones</servlet-class>
+        <servlet-name>FileUploadServlet</servlet-name>
+        <servlet-class>soft.jf.seguridad.servlets.FileUploadServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>menuPrincipal</servlet-name>
@@ -53,8 +53,8 @@
         <url-pattern>/prueba</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>regiones</servlet-name>
-        <url-pattern>/regiones</url-pattern>
+        <servlet-name>FileUploadServlet</servlet-name>
+        <url-pattern>/FileUploadServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

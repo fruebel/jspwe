@@ -59,7 +59,6 @@ public class perfiles extends HttpServlet {
 
             String action = request.getParameter("action");
             String idRow = request.getParameter("idRow");
-            //String idperfil = request.getParameter("idperfil");
             String nombre = request.getParameter("perfil");
             String[] chkfunciones = request.getParameterValues("chkfunciones");
             
@@ -250,49 +249,32 @@ public class perfiles extends HttpServlet {
                     }
                     out.print(json.toJson(resp));
                     break;
-              /*  case "nuevo":
+                case "nuevo":
 
-                    usuario = new Segusuarios();
-                    usuario.setIdUsuario(idusuario);
-                    usuario.setNombre(nombre);
-                    usuario.setApellidoMaterno(apellidomaterno);
-                    usuario.setApellidoPaterno(apellidopaterno);
-                    usuario.setEmail(email);
-                    usuario.setIdUsuarioRegistro(sessionUsuario);
+                    obj = new Segperfiles();
+                    obj.setIdperfil(0);
+                    obj.setPerfil(nombre);
+                    obj.setActivo(Integer.parseInt(activo));
 
-                    Segperfiles perfiltemp = new Segperfiles();
-                    perfiltemp.setIdperfil(Integer.parseInt(idperfil));
-                    usuario.setIdperfil(perfiltemp);
-
-                    usuario.setTelefono(telefono);
-                    usuario.setTema(tema);
-                    usuario.setLenguaje(lenguaje);
-                    usuario.setFotografia(fotografia);
-                    usuario.setContrasenia(contrasenia);
-
-                    Estadosusuarios estadousuariostemp = new Estadosusuarios();
-                    estadousuariostemp.setIdestado(Integer.parseInt(idestado));
-                    usuario.setIdEstado(estadousuariostemp);
-
-                    usuarioDAO = new segUsuariosDAO();
+                    objDAO = new segPerfilesDAO();
                     resp = new MsgRespuesta();
                     json = new Gson();
 
                      {
                         try {
 
-                            existeUsuario = usuarioDAO.verificaUsuario(idusuario, "nuevo");
-                            if (existeUsuario == 0) {
+                            existe = objDAO.verificaPerfil(nombre, "nuevo");
+                            if (existe == 0) {
                                 try {
-                                    boolean respuesta = usuarioDAO.CrearUsuario(usuario);
+                                    boolean respuesta = objDAO.CreaPerfil(obj,chkfunciones);
                                     if (respuesta) {
                                         resp.setRespuesta(true);
-                                        resp.setMensaje("Usuario Registrado Correctamente");
+                                        resp.setMensaje("Perfil Registrado Correctamente");
                                         //out.print(json.toJson(resp));
                                     } else {
 
                                         resp.setRespuesta(false);
-                                        resp.setMensaje("Error al Registrar el usuario");
+                                        resp.setMensaje("Error al Registrar el Perfil");
                                         //out.print(json.toJson(resp));
 
                                     }
@@ -300,12 +282,12 @@ public class perfiles extends HttpServlet {
                                 } catch (ClassNotFoundException | SQLException ex) {
                                     Logger.getLogger(usuarios.class.getName()).log(Level.SEVERE, null, ex);
                                     resp.setRespuesta(false);
-                                    resp.setMensaje("Error al registrar el usuario , Consulte al Administrador");
+                                    resp.setMensaje("Error al registrar el perfil , Consulte al Administrador");
                                     //out.print(json.toJson(resp));
                                 }
                             } else {
                                 resp.setRespuesta(false);
-                                resp.setMensaje("El usuario " + idusuario + " ya existe, registra uno diferente");
+                                resp.setMensaje("El perfil " + nombre + " ya existe, registra uno diferente");
                                 //out.print(json.toJson(resp));
                             }
 
@@ -317,7 +299,7 @@ public class perfiles extends HttpServlet {
                     }
                     out.print(json.toJson(resp));
                     break;
-                 */
+                 
                 default:
                     break;
 

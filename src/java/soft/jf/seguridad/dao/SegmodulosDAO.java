@@ -69,7 +69,7 @@ public class SegmodulosDAO {
                     + "     INNER JOIN seg_funcionxperfil fp on f.idfuncion=fp.idfuncion"
                     + "     INNER JOIN seg_perfiles p on p.idperfil = fp.idperfil "
                     + "     INNER JOIN seg_usuarios pxu on pxu.idperfil = p.idperfil and pxu.idusuario='" + Susuario + "'"
-                    + "where f.idmodulo=" + idmodulo + " and f.activo = 1";
+                    + "where f.idmodulo=" + idmodulo + " and f.activo = 1 ";
 
             ResultSet rs = conexionFactory.ejecutarConsulta(sql);
 
