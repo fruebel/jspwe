@@ -24,6 +24,10 @@
         <servlet-name>FileUploadServlet</servlet-name>
         <servlet-class>soft.jf.seguridad.servlets.FileUploadServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>areas</servlet-name>
+        <servlet-class>soft.jf.seguridad.servlets.areas</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>menuPrincipal</servlet-name>
         <url-pattern>/menuPrincipal</url-pattern>
@@ -48,7 +52,6 @@
         <servlet-name>llenacombos</servlet-name>
         <url-pattern>/soft_util_combos.do</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>perfiles</servlet-name>
         <url-pattern>/perfiles</url-pattern>
@@ -64,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>FileUploadServlet</servlet-name>
         <url-pattern>/FileUploadServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>areas</servlet-name>
+        <url-pattern>/areas</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
