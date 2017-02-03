@@ -43,7 +43,7 @@ public class ConnectionFactory {
             //String url = "jdbc:mysql://104.236.73.213:3306/templateSeguridad";
             String url = "jdbc:mysql://localhost:3306/templateSeguridad";
             String user = "root";
-            String password = "";
+            String password = "mysql";
 
             conexion = DriverManager.getConnection(url,user,password);
 

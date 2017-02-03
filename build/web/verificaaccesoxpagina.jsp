@@ -12,12 +12,11 @@
     accesomodulos = new SegmodulosDAO();
     int acceso = accesomodulos.VerificaPaginaxUsuarios(sessionUsuario, f1);
 
-    
-    //if (acceso == 0) {
+    if (acceso == 0) {
 
-    //    RequestDispatcher view = request.getRequestDispatcher("inicio.jsp");
-    //    view.forward(request, response);
-    //}
+        RequestDispatcher view = request.getRequestDispatcher("inicio.jsp");
+        view.forward(request, response);
+    }
     
     //out.print(acceso + " "  + sessionUsuario);
 
